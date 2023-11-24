@@ -1,59 +1,58 @@
+<?php
+    require 'Aluno.php';
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora de Média</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <h1>Login</h1>
-    <form action="logar.php" method="post">
 
-        <label for="email">Email:</label> <br>
-        <input type="text" name="email" id="email"> <br>
+    <header>
+        <h1>Formulário de Cadastro</h1>
+    </header>
+    <main>
+        <div class="block">
+            <form id="formulario">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required><br>
 
-        <label for="senha">Senha:</label> <br>
-        <input type="text" name="senha" id="senha">
+                <label for="numMat">Matrícula:</label>
+                <input type="text" id="numMat" required><br>
 
-        <button id="botao" disabled>login</button>
+                <label for="num1">Nota 1:</label>
+                <input type="number" id="num1" required><br>
 
-    </form>
-    <a href="cadastro.php">cadastrar</a>
+                <label for="num2">Nota 2:</label>
+                <input type="number" id="num2" required><br>
 
-    <div style="color: red;">
+                <input type="submit" value="Calcular Média">
+                <input type="reset">
+            </div>
+        </form>
+    </main>
+    <footer>
+        <h1>Cadastrar Aluno</h1>
+        <!-- Tabela será adicionada aqui -->
+        <table border="solid;">
+            <thead>
+                <th>Nome</th>
+                <th>Cadastro</th>
+                <th>Nota 1</th>
+                <th>Nota 2</th>
+                <th>Média</th>
+            </thead>
+            <tbody id="container">
 
-        <?php
-            if($_GET && $_GET['login'] == 'erro'){
-                echo 'ERRO';
-            }
-        ?>
+            </tbody>
+        </table>
+    </footer>
+    <script src="main.js">
 
-    </div>
-
+    </script>
 </body>
-
-<script>
-
-    setInterval(() => {
-        let email = document.getElementById('email').value;
-        let senha = document.getElementById('senha').value;
-        let botao = document.getElementById('botao');
-        
-        if(email.length > 5 && senha.length > 5){
-            
-            botao.disabled = false;
-
-        } else {
-
-            botao.disabled = true;
-
-        }
-
-    }, 20);
-
-    
-
-</script>
-
 </html>
